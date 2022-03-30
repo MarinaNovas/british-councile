@@ -1,0 +1,164 @@
+class User {
+    constructor(_name) {
+        this.name = _name;
+    }
+}
+const tom = new User('Tom');
+const header = document.getElementById('header');
+header.innerHTML = 'Привет ' + tom.name;
+if (tom) {
+    let x = 5;
+    console.log(x);
+}
+var b = 50;
+console.log(window.b);
+let xx1 = 123;
+let isEnabled = true;
+console.log(isEnabled);
+let hello = 'hello world';
+let someVar = 'hello';
+console.log(someVar);
+someVar = 20;
+console.log(someVar);
+//тоже тип Any
+let someVar1;
+someVar1 = 10;
+someVar1 = 'Hello';
+console.log(typeof someVar1);
+//Функции
+function add(a, b) {
+    let result = a + b;
+    console.log(result);
+}
+add(20, 30);
+function getSum(a, b) {
+    return a + b;
+}
+function addVoid(a, b) {
+    console.log(a + b);
+}
+function getName(firstName, lastName) {
+    if (lastName) {
+        return firstName + ' ' + lastName;
+    }
+    else {
+        return firstName;
+    }
+}
+console.log(getName('Marina'));
+function getNameSecond(firstName, lastName = 'Smirnova') {
+    if (lastName) {
+        return firstName + ' ' + lastName;
+    }
+    else {
+        return firstName;
+    }
+}
+console.log(getNameSecond('Marina'));
+function extend(...arg) {
+    console.log(arg);
+}
+extend(1, 2, 3, 4);
+function defaultLastName() {
+    return 'Smith';
+}
+function getNameThrid(firstName, lastName = defaultLastName()) {
+    return firstName + ' ' + lastName;
+}
+console.log(getNameThrid('Marina'));
+//тип функции
+function hello2() {
+    console.log('hello');
+}
+;
+let messageHello2 = hello2;
+console.log(messageHello2());
+let myGetSum;
+myGetSum = getSum;
+console.log(myGetSum(30, 50));
+function mathOp(x, y, op) {
+    return op(x, y);
+}
+console.log(mathOp(40, 50, getSum));
+function mathOp2(x, y, op) {
+    return op(x, y);
+}
+console.log(mathOp2(100, 100, getSum));
+//Unions
+let id;
+id = '1234dgg5';
+console.log(id);
+function printId(id) {
+    console.log(`Id:${id}`);
+}
+printId(id);
+function printSentence(words) {
+    if (typeof words === 'string') {
+        console.log(words);
+    }
+    else {
+        console.log(words.join(' '));
+    }
+}
+printSentence('Marina');
+printSentence(['Marina', 'Gleb', 'Ura']);
+//null и undefined
+let aa1 = undefined;
+let bb1 = null;
+console.log(aa1);
+console.log(bb1);
+let aa2 = undefined;
+aa2 = 5;
+console.log(`aa2: ${5}`);
+//Объекты
+let person = { name: 'Tom', age: 23 };
+console.log(person.name);
+person = { name: 'Bob', age: 35 };
+console.log(person);
+//Необязательные свойства объектов
+let person1;
+person1 = { name: 'Marina' };
+console.log(person1.name);
+console.log(person1.age);
+//объкты в функциях
+function printUse1(user) {
+    console.log(`name: ${user.name}, age:${user.age}`);
+}
+let bob = { name: 'Bob', age: 44, isMarried: true };
+printUse1(bob);
+console.log('name' in bob);
+for (let key in bob) {
+    console.log(bob[key]);
+}
+//деструктуризация параметра объекта
+function printUser2({ name, age = 25 }) {
+    console.log(name);
+    console.log(age);
+}
+printUser2({ name: 'Marina' });
+function printUser3(user = { name: 'Marina', age: 35 }) {
+    console.log(user.name);
+    console.log(user.age);
+}
+printUser3();
+let gleb = { name: 'Gleb', age: 23 };
+let marina = { name: 'Marina,age', age: 30 };
+function printPerson(user) {
+    console.log(user);
+}
+printPerson(gleb);
+//Type assertion
+const header1 = document.getElementById('header');
+header1.innerText = 'hello Typescript';
+//Type Array
+let list = [10, 20, 30];
+let colors = ['red', 'green', 'blue'];
+console.log(list[0]);
+console.log(colors[0]);
+// Readonly array
+const people1 = ['Tom', 'Bob', 'Sam'];
+const people2 = ['Tom', 'Bob', 'Sam'];
+//const [first, second, thrid]=people2;
+const [first, ...rest] = people2;
+console.log(first);
+console.log(rest);
